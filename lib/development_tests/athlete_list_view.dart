@@ -1,9 +1,26 @@
+import 'dart:io';
+
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+import '../config/application.dart';
+import '../config/routes.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  @override
+  State createState() {
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp> {
+  MyAppState() {
+    final router = FluroRouter();
+    Routes.configureRoutes(router);
+    Application.router = router;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      onGenerateRoute: Application.router.generator,
     );
   }
 }

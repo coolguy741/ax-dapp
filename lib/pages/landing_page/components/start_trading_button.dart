@@ -3,6 +3,8 @@ import 'package:ax_dapp/service/tracking/tracking_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import "package:ax_dapp/config/application.dart";
+
 class StartTradingButton extends StatelessWidget {
   const StartTradingButton({
     super.key,
@@ -27,7 +29,7 @@ class StartTradingButton extends StatelessWidget {
             ),
             onPressed: () {
               context.read<TrackingCubit>().onPressedStartTrading();
-              navigateToV1App(context);
+              Application.router.navigateTo(context, '/scout');
             },
             child: Text(
               'Start Trading',
@@ -53,7 +55,7 @@ class StartTradingButton extends StatelessWidget {
             ),
             onPressed: () {
               context.read<TrackingCubit>().onPressedStartTrading();
-              navigateToV1App(context);
+              Application.router.navigateTo(context, '/scout');
             },
             child: Text(
               'Start',

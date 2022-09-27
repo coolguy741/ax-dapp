@@ -69,6 +69,7 @@ dependencies:
   wallet_repository:
     path: packages/wallet_repository
   webfeed: ^0.7.0
+  fluro: ^2.0.3
 
 dependency_overrides:
   async: 2.8.0
